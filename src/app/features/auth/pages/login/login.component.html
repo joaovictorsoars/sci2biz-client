@@ -1,0 +1,51 @@
+<main class="flex">
+  <div class="w-full h-screen flex-1">
+    <a routerLink=""
+      ><mat-icon fontIcon="home" class="text-black mt-6 ml-6"
+    /></a>
+    <form
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+      class="flex flex-col items-center justify-center h-full"
+    >
+      <fieldset
+        class="w-full flex flex-col gap-y-4 items-center px-12 md:px-56 lg:px-8 2xl:px-36"
+      >
+        <legend
+          class="text-2xl text-primary font-bold mb-10 text-center mx-auto"
+        >
+          Login
+        </legend>
+        <app-text-input
+          formControlName="email"
+          placeholder="Insira seu email"
+          class="w-full"
+          [validationErrors]="getValidationErrors('email')"
+        />
+        <app-text-input
+          formControlName="password"
+          type="password"
+          placeholder="Insira sua senha"
+          class="w-full"
+          [validationErrors]="getValidationErrors('password')"
+        />
+        <a class="text-sm text-gray font-semibold self-end"
+          >Esqueceu sua senha?</a
+        >
+        <app-button size="lg" class="w-full" [disabled]="!form.valid"
+          >Entrar</app-button
+        >
+      </fieldset>
+    </form>
+  </div>
+  <div
+    class="hidden lg:flex lg:flex-1.5 w-full h-screen bg-primary items-center justify-center relative"
+  >
+    <img src="/assets/images/login.svg" class="max-h-[35rem]" alt="Login" />
+    <img
+      src="/assets/images/logo.png"
+      class="absolute right-4 bottom-4 h-12"
+      alt="Sci2Biz Logo"
+    />
+  </div>
+</main>

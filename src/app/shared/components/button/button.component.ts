@@ -1,4 +1,4 @@
-import { Component, input, OnInit, output } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import {
   ButtonSizeType,
   ButtonStyleType,
@@ -15,15 +15,18 @@ export class ButtonComponent implements OnInit {
 
   size = input<ButtonSizeType>('md');
   variant = input<ButtonVariantType>('default');
-  style = input<ButtonStyleType>('primary');
+  type = input<ButtonStyleType>('primary');
+  disabled = input(false);
 
   ngOnInit(): void {
     this.styling = `${this.buttonSize()} ${this.buttonVariant()} ${this.buttonStyle()}`;
   }
 
   buttonStyle() {
-    switch (this.style()) {
+    switch (this.type()) {
       case 'primary':
+        return 'bg-primary text-white shadow-lg disabled:bg-gray';
+      case 'secondary':
         return 'bg-yellow text-black shadow-lg';
     }
   }
@@ -38,9 +41,10 @@ export class ButtonComponent implements OnInit {
   buttonSize() {
     switch (this.size()) {
       case 'sm':
-      case 'lg':
       case 'md':
         return 'h-10 p-4';
+      case 'lg':
+        return 'h-12 p-4';
     }
   }
 }

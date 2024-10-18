@@ -1,0 +1,7 @@
+@if (showErrors()) {
+  <ng-container>
+    @for (error of errors(); track $index) {
+      <span class="text-sm text-danger">{{ error }}</span>
+    }
+  </ng-container>
+}

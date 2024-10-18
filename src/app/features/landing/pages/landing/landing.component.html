@@ -10,7 +10,7 @@
     <li>Contato</li>
   </ul>
 </nav>
-<main class="w-full h-full">
+<main>
   <section class="w-full h-[18rem] bg-network-green flex justify-end relative">
     <img
       src="/assets/images/network.png"
@@ -25,7 +25,9 @@
       </h1>
       <h1 class="font-bold text-primary mb-4">Da Ciência ao Mercado</h1>
       <div class="max-w-40 md:max-w-20">
-        <app-button>Entrar</app-button>
+        <a routerLink="/auth/login"
+          ><app-button type="secondary">Entrar</app-button></a
+        >
       </div>
     </div>
   </section>
@@ -81,7 +83,7 @@
           acadêmico.
         </p>
         <div class="md:max-w-20">
-          <app-button>Mais</app-button>
+          <app-button type="secondary">Mais</app-button>
         </div>
       </div>
       <img
